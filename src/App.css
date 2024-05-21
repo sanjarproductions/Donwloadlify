@@ -1,0 +1,157 @@
+@font-face {
+  font-family: "CabinetGrotesk-Black";
+  src: url(./fonts/CabinetGrotesk-Black.otf);
+  /* medium light bold extra bold */
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-Bold";
+  src: url(./fonts/CabinetGrotesk-Bold.otf);
+  /* medium light bold extra bold */
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-Extrabold";
+  src: url(./fonts/CabinetGrotesk-Extrabold.otf);
+  /* medium light bold extra bold */
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-Extralight";
+  src: url(./fonts/CabinetGrotesk-Extralight.otf);
+  /* medium light bold extra bold */
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-Light";
+  src: url(./fonts/CabinetGrotesk-Light.otf);
+  /* medium light bold extra bold */
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-Medium";
+  src: url(./fonts/CabinetGrotesk-Medium.otf);
+  /* medium light bold extra bold */
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-Regular";
+  src: url(./fonts/CabinetGrotesk-Regular.otf);
+  /* medium light bold extra bold */
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-Thin";
+  src: url(./fonts/CabinetGrotesk-Thin.otf);
+  /* medium light bold extra bold */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "CabinetGrotesk-Regular";
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px 20px 0px;
+}
+
+.nav strong {
+  font-size: 30px;
+  font-family: "CabinetGrotesk-Black";
+}
+
+.nav .links__wrapper {
+  display: flex;
+  gap: 0px 10px;
+}
+
+.nav .links__wrapper a:first-child {
+  border: 1px solid #000;
+  padding: 10px 15px;
+  border-radius: 10px 20px;
+  color: #000;
+  transition: 0.2s;
+}
+
+.nav .links__wrapper a:last-child {
+  background: #000;
+  padding: 10px 15px;
+  border-radius: 10px 20px;
+  color: #fff;
+  transition: 0.2s;
+}
+
+.nav .links__wrapper a:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 1px 3px 0px #0000006d;
+  /* box-shadow: 1px 1px 1px 1px #000; */
+}
+
+.wrapper-big {
+  display: grid;
+  place-items: center;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+  padding-bottom: 40px;
+}
+
+input {
+  width: 600px;
+  padding: 10px 20px;
+  border-radius: 10px 20px;
+  border: 1px solid #0000006d;
+  margin-right: 10px;
+  outline: none;
+  font-size: 20px;
+}
+
+.clickBtn {
+  background: #000;
+  padding: 15px 20px;
+  border-radius: 20px 10px;
+  color: #fff;
+  transition: 0.2s;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+
+.download__btn {
+  /* background: #000; */
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 41%, rgba(0, 212, 255, 1) 100%);
+  padding: 20px 65px;
+  border-radius: 30px;
+  color: #fff;
+  transition: 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.themessage{
+  font-family:"CabinetGrotesk-Thin" ;
+  font-style: italic;
+  max-width: 600px;
+  margin-top: 150px;
+}
