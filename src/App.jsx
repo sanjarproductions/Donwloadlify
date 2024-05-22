@@ -37,13 +37,15 @@ const App = () => {
       console.error('Error fetching the download URL:', error);
     }
   }
-
   return (
     //
     <>
       <div className="container">
         <div className="nav">
-          <strong>Downloadlify(MP3)</strong>
+          <div>
+            <strong>Downloadlify(MP3)</strong>
+            <p>Download MP3 from YouTube</p>
+          </div>
           <div className="links__wrapper">
             <a href="https://buymeacoffee.com/sanjar" target="_black">Support</a>
             <a href="mailto:sanjarkama26@gmail.com">Feedback</a>
@@ -51,8 +53,8 @@ const App = () => {
         </div>
 
         <div className="wrapper-big">
-          <p className="themessage">Pls wait a little bit , thats the first version of our product. I know it works a little slow but i pormise you, 
-            As soon as we are gonna get our first donations/payed users the #1 Im gonna invest money in to is speed inshallah  
+          <p className="themessage">Pls wait a little bit , thats the first version of our product. I know it works a little slow but i pormise you,
+            As soon as we are gonna get our first donations/payed users the #1 Im gonna invest money in to is speed inshallah
           </p>
           <form onSubmit={Render}>
             <input value={url2} onChange={(e) => setUrl(e.target.value)} placeholder="Enter Url" />
@@ -62,7 +64,7 @@ const App = () => {
             {data.downloadUrl && (
               <div>
                 <a href={data.downloadUrl} className="download__btn" download>Download</a>
-                {/* <a onClick={()s => setTimeout(() => location.reload(), 2000)} href={data.downloadUrl} download>Download</a> */}
+                {/* <a onClick={() => setTimeout(() => location.reload(), 4000)} href={data.downloadUrl} download>Download</a> */}
               </div>
             )}
           </div>

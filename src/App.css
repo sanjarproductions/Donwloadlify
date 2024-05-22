@@ -61,6 +61,7 @@ a {
   max-width: 1200px;
   width: 100%;
   margin: auto;
+  padding: 0px 20px;
 }
 
 .nav {
@@ -112,11 +113,13 @@ form {
   align-items: center;
   justify-content: center;
   padding-top: 50px;
-  padding-bottom: 40px;
+  margin-bottom: 40px;
+  width: 100%;
 }
 
 input {
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   padding: 10px 20px;
   border-radius: 10px 20px;
   border: 1px solid #0000006d;
@@ -149,9 +152,50 @@ input {
   cursor: pointer;
 }
 
-.themessage{
-  font-family:"CabinetGrotesk-Thin" ;
+.themessage {
+  font-family: "CabinetGrotesk-Thin";
   font-style: italic;
   max-width: 600px;
+  width: 100%;
   margin-top: 150px;
+}
+
+@media (max-width:500px) {
+  .container {
+    max-width: 380px;
+    margin: auto;
+    width: 100%;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 30px 0px;
+  }
+
+  .nav div:first-child {
+    text-align: center;
+  }
+
+  .themessage {
+    font-size: 13px;
+    max-width: 300px;
+    margin-top: 0;
+    /* display: none; */
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+  }
+
+  form input {
+    margin-bottom: 20px;
+    margin-right: 0px;
+    font-size: 14px;
+  }
+
+  .clickBtn {
+    padding: 15px 95px;
+  }
 }
