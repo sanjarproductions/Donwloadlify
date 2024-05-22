@@ -43,7 +43,7 @@ const App = () => {
     <>
       <div className="container">
         <div className="nav">
-          <strong>Donwloadlify(MP3)</strong>
+          <strong>Downloadlify(MP3)</strong>
           <div className="links__wrapper">
             <a href="https://buymeacoffee.com/sanjar" target="_black">Support</a>
             <a href="mailto:sanjarkama26@gmail.com">Feedback</a>
