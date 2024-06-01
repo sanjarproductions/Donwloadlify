@@ -1,78 +1,124 @@
-import { useState } from "react";
-import "./App.css"
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const App = () => {
-  const [data, setData] = useState({ downloadUrl: "" });
-  const [url2, setUrl] = useState("");
+  const [url, setUrl] = useState("");
+  const [format, setFormat] = useState("mp4");
+  const serverURL = 'https://ytmp4-dg2j.onrender.com';
 
-  async function Render(e) {
+  const handleDownload = async (e) => {
     e.preventDefault();
 
-    let formattedUrl = url2;
-    if (!/^https?:\/\//i.test(url2)) {
-      formattedUrl = `http://${url2}`;
+    if (!url) {
+      alert('Enter YouTube URL');
+      return;
     }
-
-    const url = `https://youtube-mp310.p.rapidapi.com/download/mp3?url=${formattedUrl}`;
-
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Key': '5354b358camsh9d9a18edea82a49p18103cjsn8eb38cdc5372',
-        'X-RapidAPI-Host': 'youtube-mp310.p.rapidapi.com'
-      }
-    };
 
     try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-      if (result.downloadUrl) {
-        setData({ downloadUrl: result.downloadUrl });
+      const endpoint = format === 'mp3' ? '/downloadmp3' : '/downloadmp4';
+      const response = await axios.get(`${serverURL}${endpoint}?url=${encodeURIComponent(url)}`, { responseType: 'blob' });
+
+      if (response.status === 200) {
+        const downloadUrl = window.URL.createObjectURL(new Blob([response.data]));
+        const a = document.createElement('a');
+        a.href = downloadUrl;
+        a.setAttribute('download', `${format === 'mp3' ? 'audio' : 'video'}.${format}`);
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
       } else {
-        console.error('Download URL not found in response:', result);
+        alert("Invalid URL or other error");
       }
-      console.log(result);
-
     } catch (error) {
-      console.error('Error fetching the download URL:', error);
+      console.error("Error fetching download URL", error);
+      alert("An error occurred while downloading the file.");
     }
-  }
+  };
+
   return (
-    //
-    <>
-      <div className="container">
-        <div className="nav">
-          <div>
-            <strong>Downloadlify(MP3)</strong>
-            <p>Download MP3 from YouTube</p>
+    <div>
+      <div className="menu-wrapper" id="menuWrapper">
+        <div className="container">
+          <div className="menu-wrapper__nav flex">
+            <strong className="logo">DOWNLOADLIFY</strong>
+            <p className="year">© 2024</p>
+            <button className="menu__btn" id="closeBtn">CLOSE</button>
           </div>
-          <div className="links__wrapper">
-            <a href="https://buymeacoffee.com/sanjar" target="_black">Support</a>
-            <a href="mailto:sanjarkama26@gmail.com">Feedback</a>
-          </div>
-        </div>
-
-        <div className="wrapper-big">
-          <p className="themessage">Pls wait a little bit , thats the first version of our product. I know it works a little slow but i pormise you,
-            As soon as we are gonna get our first donations/payed users the #1 Im gonna invest money in to is speed inshallah
-          </p>
-          <form onSubmit={Render}>
-            <input value={url2} onChange={(e) => setUrl(e.target.value)} placeholder="Enter Url" />
-            <button className="clickBtn" type="submit">Click Me</button>
-          </form>
-          <div className="wrapper__downloader">
-            {data.downloadUrl && (
-              <div>
-                <a href={data.downloadUrl} className="download__btn" download>Download</a>
-                {/* <a onClick={() => setTimeout(() => location.reload(), 4000)} href={data.downloadUrl} download>Download</a> */}
+          <div className="content">
+            <div>
+              <div className="flex-links">
+                <a className="content__link" href="#!">ABOUT</a>
+                <div className="flex-direct">
+                  <a className="content__link" href="mailto:sanjarkama26@gmail.com">FEEDBACK</a>
+                  <a className="content__link" href="https://buymeacoffee.com/sanjar">DONATE</a>
+                </div>
               </div>
-            )}
+              <div className="flex">
+                <div className="socials flex-direct__alignstart">
+                  <p>FOLLOW</p>
+                  <div className="links flex-direct flex-direct__links">
+                    <a href="https://www.instagram.com/downloadlify">INSTAGRAM</a>
+                    <a href="#!">YOUTUBE</a>
+                    <a href="#!">X</a>
+                  </div>
+                </div>
+                <div className="others flex-direct__alignstart">
+                  <p>OTHERS</p>
+                  <div className="links flex-direct flex-direct__links">
+                    <a target="_blank" href="https://wave-content.vercel.app/">WAVE 1.0</a>
+                    <a target="_blank" href="https://wave-content.vercel.app/">WAVE 2.0</a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
-    </>
-  );
-}
 
-export default App
+      <div className="nav">
+        <div className="container">
+          <div className="flex">
+            <strong className="logo">DOWNLOADLIFY</strong>
+            <p className="year__made">© 2024</p>
+            <button className="menu__btn" id="openBtn">MENU</button>
+          </div>
+        </div>
+      </div>
+
+      <div className="hero">
+        <div className="container">
+          <h1>Download <span>Anything</span> From YouTube</h1>
+          <p>Without Annoying & Spammy Ads</p>
+        </div>
+      </div>
+
+      <div className="download-pg">
+        <div className="container">
+          <form onSubmit={handleDownload} className="flex">
+            <div className="input-wrapper flex">
+              <input
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+                type="text"
+                placeholder="Enter YouTube URL"
+                className="URL-input"
+                required
+              />
+              <select
+                value={format}
+                onChange={(e) => setFormat(e.target.value)}
+                className="opt"
+              >
+                <option value="mp4">MP4</option>
+                <option value="mp3">MP3</option>
+              </select>
+            </div>
+            <button type="submit" className="download-btn" id="btn">DOWNLOAD</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default App;
