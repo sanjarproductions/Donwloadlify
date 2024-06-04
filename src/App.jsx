@@ -1,39 +1,40 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+// import React, { useState } from 'react';
+// import axios from 'axios';
+import "./App.css"
 
 const App = () => {
-  const [url, setUrl] = useState("");
-  const [format, setFormat] = useState("mp4");
-  const serverURL = 'https://ytmp4-dg2j.onrender.com';
+  // const [url, setUrl] = useState("");
+  // const [format, setFormat] = useState("mp4");
+  // const serverURL = 'https://ytmp4-dg2j.onrender.com';
 
-  const handleDownload = async (e) => {
-    e.preventDefault();
+  // const handleDownload = async (e) => {
+  //   e.preventDefault();
 
-    if (!url) {
-      alert('Enter YouTube URL');
-      return;
-    }
+  //   if (!url) {
+  //     alert('Enter YouTube URL');
+  //     return;
+  //   }
 
-    try {
-      const endpoint = format === 'mp3' ? '/downloadmp3' : '/downloadmp4';
-      const response = await axios.get(`${serverURL}${endpoint}?url=${encodeURIComponent(url)}`, { responseType: 'blob' });
+  //   try {
+  //     const endpoint = format === 'mp3' ? '/downloadmp3' : '/downloadmp4';
+  //     const response = await axios.get(`${serverURL}${endpoint}?url=${encodeURIComponent(url)}`, { responseType: 'blob' });
 
-      if (response.status === 200) {
-        const downloadUrl = window.URL.createObjectURL(new Blob([response.data]));
-        const a = document.createElement('a');
-        a.href = downloadUrl;
-        a.setAttribute('download', `${format === 'mp3' ? 'audio' : 'video'}.${format}`);
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      } else {
-        alert("Invalid URL or other error");
-      }
-    } catch (error) {
-      console.error("Error fetching download URL", error);
-      alert("An error occurred while downloading the file.");
-    }
-  };
+  //     if (response.status === 200) {
+  //       const downloadUrl = window.URL.createObjectURL(new Blob([response.data]));
+  //       const a = document.createElement('a');
+  //       a.href = downloadUrl;
+  //       a.setAttribute('download', `${format === 'mp3' ? 'audio' : 'video'}.${format}`);
+  //       document.body.appendChild(a);
+  //       a.click();
+  //       a.remove();
+  //     } else {
+  //       alert("Invalid URL or other error");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching download URL", error);
+  //     alert("An error occurred while downloading the file.");
+  //   }
+  // };
 
   return (
     <div>
@@ -92,7 +93,7 @@ const App = () => {
         </div>
       </div>
 
-      <div className="download-pg">
+      {/* <div className="download-pg">
         <div className="container">
           <form onSubmit={handleDownload} className="flex">
             <div className="input-wrapper flex">
@@ -109,6 +110,21 @@ const App = () => {
                 onChange={(e) => setFormat(e.target.value)}
                 className="opt"
               >
+                <option value="mp4">MP4</option>
+                <option value="mp3">MP3</option>
+              </select>
+            </div>
+            <button type="submit" className="download-btn" id="btn">DOWNLOAD</button>
+          </form>
+        </div>
+      </div> */}
+      
+      <div className="download-pg">
+        <div className="container">
+          <form className="flex">
+            <div className="input-wrapper flex">
+              <input type="text" placeholder="Enter YouTube URL" className="URL-input" required/>
+              <select className="opt">
                 <option value="mp4">MP4</option>
                 <option value="mp3">MP3</option>
               </select>

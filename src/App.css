@@ -395,8 +395,16 @@ body::-webkit-scrollbar {
 }
 
 @media(max-width:500px) {
+  .hero {
+    padding-top: 200px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
   .logo {
-    font-size: 40px;
+    font-size: 30px !important;
   }
 
   .year__made {
@@ -419,6 +427,17 @@ body::-webkit-scrollbar {
 
   .flex-links .flex-direct {
     align-items: start;
+    width: 100%;
+  }
+
+  .download-pg form {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0px;
+  }
+
+  .download-btn {
     width: 100%;
   }
 }
