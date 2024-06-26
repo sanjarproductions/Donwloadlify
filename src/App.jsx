@@ -63,7 +63,7 @@ const App = () => {
                     </label>
                     <input type="email" name="EMAIL" className="required email" id="mce-EMAIL" required />
                   </div>
-                  <div id="mce-responses" className="clear foot">
+                  <div id="mce-responses" className="clear foot" style={{ margin: "0px", padding: "0px" }}>
                     <div className="response" id="mce-error-response" style={{ display: "none" }}></div>
                     <div className="response" id="mce-success-response" style={{ display: "none" }}></div>
                   </div>
