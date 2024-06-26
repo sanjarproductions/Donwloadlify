@@ -1,87 +1,44 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-import "./App.css"
+import React, { useEffect } from "react";
+import "./App.css";
 
 const App = () => {
-  // const [url, setUrl] = useState("");
-  // const [format, setFormat] = useState("mp4");
-  // const serverURL = 'https://ytmp4-dg2j.onrender.com';
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js";
+    script.type = "text/javascript";
+    script.async = true;
+    script.onload = () => {
+      window.fnames = new Array();
+      window.ftypes = new Array();
+      window.fnames[0] = 'EMAIL';
+      window.ftypes[0] = 'email';
+      window.fnames[1] = 'FNAME';
+      window.ftypes[1] = 'text';
+      window.fnames[2] = 'LNAME';
+      window.ftypes[2] = 'text';
+      window.fnames[3] = 'ADDRESS';
+      window.ftypes[3] = 'address';
+      window.fnames[4] = 'PHONE';
+      window.ftypes[4] = 'phone';
+      window.fnames[5] = 'BIRTHDAY';
+      window.ftypes[5] = 'birthday';
+    };
 
-  // const handleDownload = async (e) => {
-  //   e.preventDefault();
+    document.body.appendChild(script);
 
-  //   if (!url) {
-  //     alert('Enter YouTube URL');
-  //     return;
-  //   }
-
-  //   try {
-  //     const endpoint = format === 'mp3' ? '/downloadmp3' : '/downloadmp4';
-  //     const response = await axios.get(`${serverURL}${endpoint}?url=${encodeURIComponent(url)}`, { responseType: 'blob' });
-
-  //     if (response.status === 200) {
-  //       const downloadUrl = window.URL.createObjectURL(new Blob([response.data]));
-  //       const a = document.createElement('a');
-  //       a.href = downloadUrl;
-  //       a.setAttribute('download', `${format === 'mp3' ? 'audio' : 'video'}.${format}`);
-  //       document.body.appendChild(a);
-  //       a.click();
-  //       a.remove();
-  //     } else {
-  //       alert("Invalid URL or other error");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error fetching download URL", error);
-  //     alert("An error occurred while downloading the file.");
-  //   }
-  // };
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
-    <div>
-      <div className="menu-wrapper" id="menuWrapper">
-        <div className="container">
-          <div className="menu-wrapper__nav flex">
-            <strong className="logo">DOWNLOADLIFY</strong>
-            <p className="year">© 2024</p>
-            <button className="menu__btn" id="closeBtn">CLOSE</button>
-          </div>
-          <div className="content">
-            <div>
-              <div className="flex-links">
-                <a className="content__link" href="#!">ABOUT</a>
-                <div className="flex-direct">
-                  <a className="content__link" href="mailto:sanjarkama26@gmail.com">FEEDBACK</a>
-                  <a className="content__link" href="https://buymeacoffee.com/sanjar">DONATE</a>
-                </div>
-              </div>
-              <div className="flex">
-                <div className="socials flex-direct__alignstart">
-                  <p>FOLLOW</p>
-                  <div className="links flex-direct flex-direct__links">
-                    <a href="https://www.instagram.com/downloadlify">INSTAGRAM</a>
-                    <a href="#!">YOUTUBE</a>
-                    <a href="#!">X</a>
-                  </div>
-                </div>
-                <div className="others flex-direct__alignstart">
-                  <p>OTHERS</p>
-                  <div className="links flex-direct flex-direct__links">
-                    <a target="_blank" href="https://wave-content.vercel.app/">WAVE 1.0</a>
-                    <a target="_blank" href="https://wave-content.vercel.app/">WAVE 2.0</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <>
       <div className="nav">
         <div className="container">
           <div className="flex">
             <strong className="logo">DOWNLOADLIFY</strong>
             <p className="year__made">© 2024</p>
-            <button className="menu__btn" id="openBtn">MENU</button>
+            {/* <button className="menu__btn" id="openBtn">MENU</button> */}
           </div>
         </div>
       </div>
@@ -92,48 +49,60 @@ const App = () => {
           <p>Without Annoying & Spammy Ads</p>
         </div>
       </div>
-
-      {/* <div className="download-pg">
+      <div className="form">
         <div className="container">
-          <form onSubmit={handleDownload} className="flex">
-            <div className="input-wrapper flex">
-              <input
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                type="text"
-                placeholder="Enter YouTube URL"
-                className="URL-input"
-                required
-              />
-              <select
-                value={format}
-                onChange={(e) => setFormat(e.target.value)}
-                className="opt"
-              >
-                <option value="mp4">MP4</option>
-                <option value="mp3">MP3</option>
-              </select>
+          <div id="mc_embed_shell">
+            <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css" />
+            <div id="mc_embed_signup">
+              <form action="https://gmail.us13.list-manage.com/subscribe/post?u=61c49ab960dddaff5686f818b&amp;id=7093136cbd&amp;f_id=004660e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" style={{ margin: "0px" }}>
+                <div id="mc_embed_signup_scroll">
+                  <h2>Join Waitlist</h2>
+                  <div className="mc-field-group">
+                    <label htmlFor="mce-EMAIL">
+                      Email Address <span className="asterisk">*</span>
+                    </label>
+                    <input type="email" name="EMAIL" className="required email" id="mce-EMAIL" required />
+                  </div>
+                  <div id="mce-responses" className="clear foot">
+                    <div className="response" id="mce-error-response" style={{ display: "none" }}></div>
+                    <div className="response" id="mce-success-response" style={{ display: "none" }}></div>
+                  </div>
+                  <div aria-hidden="true" style={{ position: "absolute", left: "-5000px" }}>
+                    <input type="text" name="b_61c49ab960dddaff5686f818b_7093136cbd" tabIndex="-1" />
+                  </div>
+                  <div className="optionalParent">
+                    <div className="clear foot">
+                      <input type="submit" name="subscribe" id="mc-embedded-subscribe" className="button" value="Subscribe" />
+                      <p style={{ margin: "0px auto" }}>
+                        <a href="http://eepurl.com/iSFBgg" title="Mailchimp - email marketing made easy and fun">
+                          <span style={{ display: "inline-block", backgroundColor: "transparent", borderRadius: "4px" }}></span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
-            <button type="submit" className="download-btn" id="btn">DOWNLOAD</button>
-          </form>
-        </div>
-      </div> */}
-      
-      <div className="download-pg">
-        <div className="container">
-          <form className="flex">
-            <div className="input-wrapper flex">
-              <input type="text" placeholder="Enter YouTube URL" className="URL-input" required/>
-              <select className="opt">
-                <option value="mp4">MP4</option>
-                <option value="mp3">MP3</option>
-              </select>
-            </div>
-            <button type="submit" className="download-btn" id="btn">DOWNLOAD</button>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
+      <div className="footer">
+        <div className="container">
+
+          <div>
+            <a className="content__link" href="mailto:sanjarkama26@gmail.com">FEEDBACK</a>
+            <a className="content__link" href="https://buymeacoffee.com/sanjar">DONATE</a>
+          </div>
+
+          <div className="links flex-direct flex-direct__links">
+            <a href="https://www.instagram.com/downloadlify">INSTAGRAM</a>
+            <a href="https://www.youtube.com/downloadlify">YOUTUBE</a>
+            <a href="https://www.x.com/downloadlify">X</a>
+          </div>
+
+        </div>
+      </div>
+    </>
   );
 };
 

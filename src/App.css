@@ -1,53 +1,3 @@
-@font-face {
-  font-family: "CabinetGrotesk-Black";
-  src: url(./fonts/CabinetGrotesk-Black.otf);
-  /* medium light bold extra bold */
-}
-
-@font-face {
-  font-family: "CabinetGrotesk-Bold";
-  src: url(./fonts/CabinetGrotesk-Bold.otf);
-  /* medium light bold extra bold */
-}
-
-@font-face {
-  font-family: "CabinetGrotesk-Extrabold";
-  src: url(./fonts/CabinetGrotesk-Extrabold.otf);
-  /* medium light bold extra bold */
-}
-
-@font-face {
-  font-family: "CabinetGrotesk-Extralight";
-  src: url(./fonts/CabinetGrotesk-Extralight.otf);
-  /* medium light bold extra bold */
-}
-
-@font-face {
-  font-family: "CabinetGrotesk-Light";
-  src: url(./fonts/CabinetGrotesk-Light.otf);
-  /* medium light bold extra bold */
-}
-
-@font-face {
-  font-family: "CabinetGrotesk-Medium";
-  src: url(./fonts/CabinetGrotesk-Medium.otf);
-  /* medium light bold extra bold */
-}
-
-@font-face {
-  font-family: "CabinetGrotesk-Regular";
-  src: url(./fonts/CabinetGrotesk-Regular.otf);
-  /* medium light bold extra bold */
-}
-
-@font-face {
-  font-family: "CabinetGrotesk-Thin";
-  src: url(./fonts/CabinetGrotesk-Thin.otf);
-  /* medium light bold extra bold */
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -62,7 +12,7 @@ a {
 
 body {
   position: relative;
-  background: #222222;
+  /* background: #222222; */
   scroll-behavior: smooth;
 }
 
@@ -78,120 +28,16 @@ body::-webkit-scrollbar {
 }
 
 .nav {
-  position: fixed;
   width: 100%;
-  color: #fff;
   cursor: pointer;
-  /* z-index: 2; */
   padding-bottom: 100px;
 }
 
 .logo {
   font-size: 100px;
   font-family: "CabinetGrotesk-Black";
-  color: #fff;
+  /* color: #fff; */
 }
-
-.menu__btn {
-  border: none;
-  background: transparent;
-  color: #fff;
-  font-size: 20px;
-  font-family: "CabinetGrotesk-Bold";
-  cursor: pointer;
-}
-
-.menu-wrapper {
-  color: #fff;
-  width: 100%;
-  height: 100%;
-  background: #3d3d3d;
-  position: absolute;
-  z-index: 5;
-  top: 0;
-  right: 0;
-  transform: translateY(-100%);
-  transition: transform 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000);
-}
-
-.menu-wrapper a {
-  color: #fff;
-}
-
-.menu-wrapper .flex-links {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* margin-bottom: 120px; */
-}
-
-.flex-direct {
-  display: flex;
-  align-items: end;
-  flex-direction: column;
-}
-
-.flex-direct__links {
-  align-items: start;
-}
-
-.flex-direct__alignstart {
-  display: flex;
-  align-items: start;
-  gap: 0px 25px;
-}
-
-.menu-wrapper.opened {
-  transform: translateY(0);
-}
-
-.menu-wrapper.closed {
-  transform: translateY(-100%);
-}
-
-
-.menu-wrapper .container {
-  opacity: 1;
-}
-
-.opened {
-  display: block;
-}
-
-
-.menu-wrapper .closeBtn {
-  border: none;
-  background: transparent;
-  color: #fff;
-  font-size: 20px;
-  font-family: "CabinetGrotesk-Bold";
-  cursor: pointer;
-}
-
-.menu-wrapper .content__link {
-  font-size: 100px;
-  font-weight: 900;
-  font-family: "CabinetGrotesk-ExtraBold";
-  color: #fff;
-  transition: .2s ease;
-}
-
-.menu-wrapper .content__link:hover {
-  text-decoration: underline;
-  transition: .2s ease;
-}
-
-.menu-wrapper__nav {
-  margin-bottom: 50px;
-}
-
-.content__others {
-  display: flex;
-  flex-direction: column;
-}
-
-
-
 
 .flex {
   display: flex;
@@ -200,203 +46,60 @@ body::-webkit-scrollbar {
 }
 
 .hero {
-  padding-top: 300px;
-  color: #fff;
+  padding-bottom: 50px;
 }
 
 .hero h1 {
   font-size: 60px;
-  font-family: "CabinetGrotesk-Extrabold";
-}
-
-.hero h1 span {
-  font-family: "Parisienne", cursive;
-  /* font-family: "CabinetGrotesk-Light"; */
-  font-style: italic;
-  /* font-size: 20px; */
 }
 
 .hero p {
-  font-size: 18px;
+  font-size: 22px;
   font-style: italic;
 }
 
-#blob {
-  background-color: white;
-  height: 34vmax;
-  aspect-ratio: 1;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  translate: -50% -50%;
-  border-radius: 50%;
-  background: linear-gradient(to right, #464646, #A0A0A0, #fff);
-  animation: rotate 20s infinite;
-  opacity: 0.8;
+
+#mc_embed_signup {
+  background: #fff;
+  clear: left;
+  font: 14px Helvetica, Arial, sans-serif;
+  max-width: 600px;
 }
 
-#blur {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-  backdrop-filter: blur(12vmax);
+.footer {
+  margin-top: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 1px solid #000;
 }
 
-/* From Here */
-
-.download-pg form {
-  /* padding: 100px 0px; */
-  padding-bottom: 230px;
+.footer .container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0px 30px;
+  justify-content: space-between;
 }
 
-.download-pg form input {
-  background: transparent;
-  border: none;
-  font-size: 20px;
-  width: 100%;
-  outline: none;
-  color: #fff;
-  padding: 13px 21px;
-}
-
-.input-wrapper {
-  color: #AFAFAF;
-  border: 1px solid #000;
-  border-radius: 50px;
-  font-size: 20px;
-  max-width: 500px;
-  width: 100%;
-  transition: 0.3s;
-  padding-right: 27px;
-
-}
-
-.input-wrapper select {
-  background: transparent;
-  border: none;
-  outline: none;
-  border-left: 1px solid #000;
-  padding-left: 27px;
-  color: #AFAFAF;
-  height: 100%;
-}
-
-.input-wrapper:hover {
-  box-shadow: 1px 5px 9.9px 0px #000000CC;
-}
-
-.download-btn:active {
-  box-shadow: 2px 4px 10.3px 0px #000000E3;
-}
-
-.download-btn {
-  background: transparent;
-  border: none;
-  border: 1px solid #000000;
-  color: #AFAFAF;
-  padding: 13px 14px;
-  border-radius: 50px;
-  font-size: 20px;
-}
-
-/* 
-
-.download-pg .container {
+.footer .container div {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 100px;
-  padding-bottom: 200px;
+  flex-direction: column;
+  gap: 5px 0px;
 }
 
-.btn {
-  position: relative;
-  cursor: pointer;
-  transition: 0.2s;
+.footer a {
+  color: #000;
 }
 
-.btn img {
-  width: 100%;
-
-}
-
-.btn:hover {
-  transform: scale(1.1);
-}
-
-.donwload__btn {
-  position: absolute;
-  background: transparent;
-  border: none;
-  color: #A0A0A0;
-  font-size: 40px;
-  cursor: pointer;
-}
-
-.btn_mp3 {
-  top: 28%;
-  right: 45%;
-}
-
-.btn_mp4 {
-  top: 28%;
-  right: 25%;
-} */
-
-@keyframes scale-up-ver-top {
-  0% {
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-  }
-
-  100% {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-  }
-}
-
-@keyframes scale-up-ver-top-back {
-  0% {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-  }
-
-  100% {
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-  }
-}
-
-@keyframes rotate {
-  from {
-    rotate: 0deg;
-  }
-
-  50% {
-    scale: 1 1.5;
-  }
-
-  to {
-    rotate: 360deg;
-  }
+.footer .links {
+  text-align: right;
 }
 
 @media(max-width:500px) {
+
+  .menu__btn {
+    display: none;
+  }
+
   .hero {
-    padding-top: 200px;
+    /* padding-top: 200px; */
   }
 
   .hero h1 {
